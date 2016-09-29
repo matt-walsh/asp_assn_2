@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VoteFor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="trackId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VoteForResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="VoteAgainst">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="trackId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VoteAgainstResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTrackVotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="trackId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrackVotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTrackVotesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumVotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="albumId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumVotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAlbumVotesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArtistVotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="artistId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArtistVotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetArtistVotesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGenreVotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="genreId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGenreVotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetGenreVotesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VoteForSoapIn">
+    <wsdl:part name="parameters" element="tns:VoteFor" />
+  </wsdl:message>
+  <wsdl:message name="VoteForSoapOut">
+    <wsdl:part name="parameters" element="tns:VoteForResponse" />
+  </wsdl:message>
+  <wsdl:message name="VoteAgainstSoapIn">
+    <wsdl:part name="parameters" element="tns:VoteAgainst" />
+  </wsdl:message>
+  <wsdl:message name="VoteAgainstSoapOut">
+    <wsdl:part name="parameters" element="tns:VoteAgainstResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrackVotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrackVotes" />
+  </wsdl:message>
+  <wsdl:message name="GetTrackVotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrackVotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumVotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumVotes" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumVotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumVotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArtistVotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArtistVotes" />
+  </wsdl:message>
+  <wsdl:message name="GetArtistVotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArtistVotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGenreVotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGenreVotes" />
+  </wsdl:message>
+  <wsdl:message name="GetGenreVotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGenreVotesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PopularityTrackerSoap">
+    <wsdl:operation name="VoteFor">
+      <wsdl:input message="tns:VoteForSoapIn" />
+      <wsdl:output message="tns:VoteForSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VoteAgainst">
+      <wsdl:input message="tns:VoteAgainstSoapIn" />
+      <wsdl:output message="tns:VoteAgainstSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackVotes">
+      <wsdl:input message="tns:GetTrackVotesSoapIn" />
+      <wsdl:output message="tns:GetTrackVotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumVotes">
+      <wsdl:input message="tns:GetAlbumVotesSoapIn" />
+      <wsdl:output message="tns:GetAlbumVotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArtistVotes">
+      <wsdl:input message="tns:GetArtistVotesSoapIn" />
+      <wsdl:output message="tns:GetArtistVotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreVotes">
+      <wsdl:input message="tns:GetGenreVotesSoapIn" />
+      <wsdl:output message="tns:GetGenreVotesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PopularityTrackerSoap" type="tns:PopularityTrackerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VoteFor">
+      <soap:operation soapAction="http://tempuri.org/VoteFor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoteAgainst">
+      <soap:operation soapAction="http://tempuri.org/VoteAgainst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackVotes">
+      <soap:operation soapAction="http://tempuri.org/GetTrackVotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumVotes">
+      <soap:operation soapAction="http://tempuri.org/GetAlbumVotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArtistVotes">
+      <soap:operation soapAction="http://tempuri.org/GetArtistVotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreVotes">
+      <soap:operation soapAction="http://tempuri.org/GetGenreVotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PopularityTrackerSoap12" type="tns:PopularityTrackerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VoteFor">
+      <soap12:operation soapAction="http://tempuri.org/VoteFor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoteAgainst">
+      <soap12:operation soapAction="http://tempuri.org/VoteAgainst" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackVotes">
+      <soap12:operation soapAction="http://tempuri.org/GetTrackVotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumVotes">
+      <soap12:operation soapAction="http://tempuri.org/GetAlbumVotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArtistVotes">
+      <soap12:operation soapAction="http://tempuri.org/GetArtistVotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenreVotes">
+      <soap12:operation soapAction="http://tempuri.org/GetGenreVotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PopularityTracker">
+    <wsdl:port name="PopularityTrackerSoap" binding="tns:PopularityTrackerSoap">
+      <soap:address location="http://localhost:1257/PopularityTracker.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PopularityTrackerSoap12" binding="tns:PopularityTrackerSoap12">
+      <soap12:address location="http://localhost:1257/PopularityTracker.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
